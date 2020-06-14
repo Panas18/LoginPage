@@ -1,0 +1,208 @@
+<Screen1>:
+    user_name: user_name
+    password:password
+
+    FloatLayout:
+        BoxLayout:                   
+            orientation:"vertical"
+            BoxLayout:
+                canvas:
+                    Color:
+                        rgba:  0,76/255, 153/155,1 #Blue 
+                    RoundedRectangle:
+                        size: self.size
+                        pos: self.pos
+                        radius:[0,0,40,40]
+
+            BoxLayout:
+                orientation:"vertical"
+
+                BoxLayout:
+                    orientation:"vertical"
+                    Widget:
+                        canvas:
+                            Color:
+                                rgba: 1,1,1,1
+                            Rectangle:
+                                size: self.size
+                                pos: self.pos
+            BoxLayout:
+                orientation:"vertical"
+
+                BoxLayout:
+                    orientation:"vertical"
+                    Widget:
+                        canvas:
+                            Color:
+                                rgba: 1,1,1,1
+                            Rectangle:
+                                size: self.size
+                                pos: self.pos
+
+        MDCard:
+            oriantation:"vertical"
+            size_hint:[.8,.6]
+            pos_hint:{"center_x":0.5, "center_y":0.6}
+            padding:[20,10,20,10]
+
+            BoxLayout:
+                orientation:"vertical"
+
+                MDLabel:
+                    pos: self.pos
+                    text:"APP"
+                    font_size: 40
+                    halign:"center"
+                    theme_text_color:"Primary"
+                    bold: True
+                    
+
+                MDLabel:
+                    #pos: self.pos
+                    text:"LOGIN PAGE"
+                    font_size: 30
+                    halign:"center"
+                    theme_text_color:"Custom"
+                    text_color: 0,1,0,1
+                    bold: True
+
+                BoxLayout:
+                    orientation:"vertical"
+                    size: self.size
+                    MDTextField:
+                        id: user_name
+                        hint_text:"User Name"
+                        icon_right: "account"
+                    
+                    MDTextField:
+                        id: password
+                        hint_text:"Password"
+                        password:True
+                        icon_right: 'key-variant'
+
+
+                    MDFillRoundFlatButton:
+                        text:"LOGIN"
+                        size_hint_x:0.5
+                        pos_hint:{"center_x":.5}
+                        on_release:
+                            root.check()  
+
+                    MDFlatButton:
+                        text:"SIGN UP"
+                        pos_hint:{"center_x":.5}
+                        #pos: self.pos
+                        size_hint_x: .5
+                        on_release:
+                            app.root.current = "signup"
+
+<Screen2>:
+    s_user_name: user_name
+    s_password: password
+    s_confirm_password: confirm_password
+    s_full_name:full_name
+
+    FloatLayout:
+        BoxLayout:                   
+            orientation:"vertical"
+            BoxLayout:
+                canvas:
+                    Color:
+                        rgba:  0,76/255, 153/155,1 #Blue 
+                    RoundedRectangle:
+                        size: self.size
+                        pos: self.pos
+                        radius:[0,0,40,40]
+
+            BoxLayout:
+                orientation:"vertical"
+
+                BoxLayout:
+                    orientation:"vertical"
+                    Widget:
+                        canvas:
+                            Color:
+                                rgba: 1,1,1,1
+                            Rectangle:
+                                #size: self.size
+                                #pos: self.pos
+            BoxLayout:
+                orientation:"vertical"
+
+                BoxLayout:
+                    orientation:"vertical"
+                    Widget:
+                        canvas:
+                            Color:
+                                rgba: 1,1,1,1
+                            Rectangle:
+                                #size: self.size
+                                #pos: self.pos
+
+        MDCard:
+            oriantation:"vertical"
+            size_hint:[.8,.7]
+            pos_hint:{"center_x":0.5, "center_y":0.6}
+            padding:[20,10,20,10]
+
+            BoxLayout:
+                orientation:"vertical"
+
+                MDLabel:
+                    pos: self.pos
+                    text:"SIGN UP"
+                    font_size: 40
+                    halign:"center"
+                    theme_text_color:"Custom"
+                    text_color: 0,1,0,1
+                    bold: True
+
+                BoxLayout:
+                    orientation:"vertical"
+                    #size: self.size
+                    MDTextField:
+                        id: full_name
+                        hint_text: "Full Name"
+                        icon_right: "account"
+                        required: True
+                    MDTextField:
+                        id: user_name
+                        hint_text: "User Name"
+                        icon_right: "account-multiple-plus"
+                        required: True
+                    MDTextField:
+                        id: password
+                        hint_text: "Create Password"
+                        icon_right: "key-variant"
+                        required: True
+                        password:True
+                    MDTextField:
+                        id: confirm_password
+                        hint_text: "Confirm Password"
+                        icon_right: "key-variant"
+                        password : True
+                        required: True
+                    
+                    MDFillRoundFlatButton:
+                        text:"SIGN UP"
+                        pos_hint:{"center_x":.5}
+                        #pos: self.pos
+                        size_hint_x: .5
+                        on_release:
+                            root.signup()
+
+                    MDFlatButton:
+                        text:"LOGIN"
+                        size_hint_x:0.5
+                        pos_hint:{"center_x":.5}
+                        on_release:
+                            app.root.current = "login"                      
+
+
+
+
+
+
+
+
+                    
