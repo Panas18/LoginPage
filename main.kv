@@ -1,3 +1,15 @@
+#:import BoxLayout kivy.uix.boxlayout
+#:import FloatLayout kivy.uix.floatlayout
+#:import Color kivy.graphics
+#:import Rectangle kivy.graphics
+#:import Ellipse kivy.graphics
+#:import RoundedRectangle kivy.graphics
+#:import MDCard kivymd.uix.card
+#:import MDLabel kivymd.uix.label
+#:import MDTextField kivymd.uix.textfield
+#:import MDFillRoundFlatButton kivymd.uix.button
+#:import MDFlatButton kivymd.uix.button
+
 <Screen1>:
     user_name: user_name
     password:password
@@ -51,7 +63,7 @@
                 MDLabel:
                     pos: self.pos
                     text:"APP"
-                    font_size: 40
+                    font_size: 80
                     halign:"center"
                     theme_text_color:"Primary"
                     bold: True
@@ -60,43 +72,41 @@
                 MDLabel:
                     #pos: self.pos
                     text:"LOGIN PAGE"
-                    font_size: 30
+                    font_size: 80
                     halign:"center"
                     theme_text_color:"Custom"
                     text_color: 0,1,0,1
                     bold: True
 
-                BoxLayout:
-                    orientation:"vertical"
-                    size: self.size
-                    MDTextField:
-                        id: user_name
-                        hint_text:"User Name"
-                        icon_right: "account"
-                    
-                    MDTextField:
-                        id: password
-                        hint_text:"Password"
-                        password:True
-                        icon_right: 'key-variant'
+                MDTextField:
+                    id: user_name
+                    hint_text:"User Name"
+                    icon_right: "account"
+                
+                MDTextField:
+                    id: password
+                    hint_text:"Password"
+                    password:True
+                    icon_right: 'key-variant'
 
 
-                    MDFillRoundFlatButton:
-                        text:"LOGIN"
-                        size_hint_x:0.5
-                        pos_hint:{"center_x":.5}
-                        on_release:
-                            root.check()  
+                MDFillRoundFlatButton:
+                    text:"LOGIN"
+                    size_hint_x:0.5
+                    pos_hint:{"center_x":.5}
+                    on_release:
+                        root.login_button()
 
-                    MDFlatButton:
-                        text:"SIGN UP"
-                        pos_hint:{"center_x":.5}
-                        #pos: self.pos
-                        size_hint_x: .5
-                        on_release:
-                            app.root.current = "signup"
+                MDFlatButton:
+                    text:"SIGN UP"
+                    pos_hint:{"center_x":.5}
+                    #pos: self.pos
+                    size_hint_x: .5
+                    on_release:
+                        app.root.current = "signup"
 
 <Screen2>:
+
     s_user_name: user_name
     s_password: password
     s_confirm_password: confirm_password
@@ -151,7 +161,7 @@
                 MDLabel:
                     pos: self.pos
                     text:"SIGN UP"
-                    font_size: 40
+                    font_size: 80
                     halign:"center"
                     theme_text_color:"Custom"
                     text_color: 0,1,0,1
@@ -189,7 +199,7 @@
                         #pos: self.pos
                         size_hint_x: .5
                         on_release:
-                            root.signup()
+                            root.signup_buton()
 
                     MDFlatButton:
                         text:"LOGIN"
@@ -197,6 +207,13 @@
                         pos_hint:{"center_x":.5}
                         on_release:
                             app.root.current = "login"                      
+<Screen3>:
+
+    MDFillRoundFlatButton:
+        text:"Logout"
+        pos_hint:{"center_x": 0.5, "center_y": 0.5}
+        on_release:
+            app.root.current = "login"
 
 
 
